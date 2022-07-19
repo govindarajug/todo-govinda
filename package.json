@@ -16,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/step-8/todo-govindarajug/issues"
   },
-  "homepage": "https://github.com/step-8/todo-govindarajug#readme"
+  "homepage": "https://github.com/step-8/todo-govindarajug#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "mocha": "^10.0.0",
+    "supertest": "^6.2.4"
+  }
 }
