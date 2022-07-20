@@ -6,11 +6,21 @@ require('dotenv').config();
 const { logInHandler } = require('./handlers/logInHandler');
 const { signUpHandler } = require('./handlers/signUpHandler');
 const { logOutHandler } = require('./handlers/logOutHandler');
-const { apiHandler } = require('./handlers/apiHandler');
-const { serveHomePage } = require('./handlers/serveHomePage');
 
-const createApp = () => {
-  const users = ['spider'];
+const { apiHandler } = require('./handlers/apiHandler.js');
+const { serveHomePage } = require('./handlers/serveHomePage.js');
+const { addList } = require('./handlers/addListHandler.js');
+const { injectToDo } = require('./handlers/injectToDo.js');
+const { getJSON } = require('./handlers/dataManager.js');
+
+const createToDoRouter = (allToDo) => {
+  const toDoRouter = express.Router();
+  toDoRouter.use(injectToDo(allToDo));
+  return toDoRouter;
+};
+
+const createApp = (config) => {
+  const allToDo = getJSON(config.dbPath);
   const app = express();
   app.use(morgan('tiny'));
 
@@ -19,16 +29,20 @@ const createApp = () => {
 
   app.use(cookieSession({
     name: 'session',
-    keys: [process.env.key]
+    keys: [config.key]
   }));
 
-  app.post('/login', logInHandler(users));
-  app.post('/signup', signUpHandler(users));
+  app.post('/login', logInHandler(config.users));
+  app.post('/signup', signUpHandler(config.users));
 
   app.get('/logOut', logOutHandler);
 
-  app.get('/api/to-do', apiHandler);
-  app.get('/', serveHomePage);
+  toDoRouter = createToDoRouter(allToDo);
+  app.use('/', toDoRouter);
+  toDoRouter.get('/api/to-do', apiHandler);
+  toDoRouter.get('/', serveHomePage);
+
+  app.post('/addList', addList(allToDo, config.dbPath));
 
   app.use(express.static('./public'));
   return app;

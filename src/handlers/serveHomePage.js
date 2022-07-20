@@ -6,6 +6,7 @@ const homePageTemplate = `<html>
   </title>
   <link rel="stylesheet" href="styles/homepage.css">
     <script src="scripts/xhrutils.js"></script>
+    <script src="scripts/formUtils.js"></script>
   <script src="scripts/homepage.js"></script>
 </head>
 
@@ -24,9 +25,13 @@ const homePageTemplate = `<html>
       </ul>
     </nav>
     <main class="listContainer">
-      <article class="newToDo">
-        <div>Click to add new TO-DO</div>
-      </article>
+      <form class="newTODO">
+        <label for="title"></label>
+        <input type="text" name="title" id="title" placeholder="Title your TO-DO">
+        <label for="item"></label>
+        <input type="text" name="item" id="item" placeholder="new items">
+        <input type="button" value="save" id="save">
+      </form>
     </main>
   </div>
 </body>

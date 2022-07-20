@@ -9,11 +9,12 @@ const createElement = ([tag, className = '', text = '']) => {
   return element;
 };
 
+const redrawScreen = () => {
+  xhrGet('/', (x) => { });
+};
+
 const addNewTODO = () => {
-  const newToDo = document.querySelector('.newToDo');
-  const article = document.createElement('article');
-  article.className = 'todoList';
-  newToDo.after(article);
+  xhrPost('/addList', null, null, getFormData('.newTODO'));
   return;
 };
 
@@ -26,12 +27,15 @@ const createItems = (items) => {
 };
 
 const drawList = (list, listContainer) => {
-  const listEle = document.createElement('article');
-  listEle.className = 'todoList';
-  listEle.appendChild(createElement(['div', 'title', list.title]));
-
-  listEle.appendChild(createItems(list.items));
-  listContainer.appendChild(listEle);
+  if (list.title) {
+    const listEle = document.createElement('article');
+    listEle.className = 'todoList';
+    listEle.appendChild(createElement(['div', 'title', list.title]));
+    if (list.items) {
+      listEle.appendChild(createItems(list.items));
+    }
+    listContainer.appendChild(listEle);
+  }
   return;
 };
 
@@ -41,12 +45,14 @@ const addTODOs = (xhr) => {
   userToDo.lists.forEach(list => {
     drawList(list, container);
   });
+  return;
 };
 
 const main = () => {
-  const addTODOElement = document.querySelector('.newToDo');
+  const addTODOElement = document.querySelector('#save');
   addTODOElement.addEventListener('click', addNewTODO);
   xhrGet('/api/to-do', addTODOs);
+  return;
 };
 
 window.onload = main;

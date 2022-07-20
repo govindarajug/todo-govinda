@@ -1,7 +1,6 @@
 ## TO-DO
 
-- [ ] Send request to add list handler on click to add new list
-- [ ] Create handler to add lists
+- [ ] Add npm setup to start the server when cloned
 - [ ] Create a page to view to-do list
 - [ ] Create a page to add new to-do list
 - [ ] Handle 404 error and give a link to login page
@@ -10,6 +9,8 @@
 
 ## DONE
 
+- [x] Send request to add list handler on click to add new list
+- [x] Create handler to add lists
 - [x] Create home page using api
 - [x] Decide data model
 - [x] Create api to serve data as json

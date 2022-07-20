@@ -1,7 +1,13 @@
 const { createApp } = require("./src/app.js");
 
 const startServer = (port) => {
-  const app = createApp();
+  const config = {
+    key: process.env.key,
+    users: ['spider'],
+    dbPath: process.env.dbPath
+  };
+
+  const app = createApp(config);
   app.listen(port, () => console.log(`Server listening on ${port}`));
 };
 

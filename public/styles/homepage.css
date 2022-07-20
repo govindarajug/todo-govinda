@@ -56,3 +56,25 @@ header {
 .todoList>.title {
   font-size: 1.6em;
 }
+
+.newTODO #title {
+  width: 100%;
+  height: 70;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.newTODO #item {
+  position: relative;
+  top: 6.5em;
+  width: 100%;
+  height: 50;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.newTODO #save {
+  position: relative;
+  top: 6.5em;
+  left: 11em;
+}
