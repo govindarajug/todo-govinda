@@ -5,6 +5,7 @@ require('dotenv').config();
 
 const { logInHandler } = require('./handlers/logInHandler');
 const { signUpHandler } = require('./handlers/signUpHandler');
+const { logOutHandler } = require('./handlers/logOutHandler');
 
 const createApp = () => {
   const app = express();
@@ -20,6 +21,8 @@ const createApp = () => {
 
   app.post('/login', logInHandler(['spider']));
   app.post('/signup', signUpHandler(['spider']));
+
+  app.get('/logOut', logOutHandler);
 
   app.use(express.static('./public'));
   return app;

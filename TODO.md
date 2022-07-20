@@ -1,6 +1,5 @@
 ## TO-DO
 
-- [ ] Add logout handler
 - [ ] Create a page to view to-do list
 - [ ] Create a page to add new to-do list
 - [ ] Decide data model
@@ -10,6 +9,7 @@
 
 ## DONE
 
+- [x] Add logout handler
 - [x] Add login and sign-up handlers
 - [x] Install `dotenv`
 - [x] Serve static files

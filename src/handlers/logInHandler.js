@@ -1,5 +1,5 @@
 const logInHandler = (users) => {
-  return (req, res, next) => {
+  return (req, res) => {
     const { username } = req.body;
     if (username) {
       if (!users.includes(username)) {

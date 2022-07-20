@@ -52,3 +52,13 @@ describe('signup requests', () => {
       .expect(302, done);
   });
 });
+
+describe('logout requests', () => {
+  it('Should redirect to login after logging out', (done) => {
+    request(createApp())
+      .get('/logout')
+      .set('Cookie', 'id=1')
+      .expect('location', '/login.html')
+      .expect(302, done);
+  });
+});
