@@ -6,8 +6,10 @@ require('dotenv').config();
 const { logInHandler } = require('./handlers/logInHandler');
 const { signUpHandler } = require('./handlers/signUpHandler');
 const { logOutHandler } = require('./handlers/logOutHandler');
+const { apiHandler } = require('./handlers/apiHandler');
 
 const createApp = () => {
+  const users = ['spider'];
   const app = express();
   app.use(morgan('tiny'));
 
@@ -19,10 +21,12 @@ const createApp = () => {
     keys: [process.env.key]
   }));
 
-  app.post('/login', logInHandler(['spider']));
-  app.post('/signup', signUpHandler(['spider']));
+  app.post('/login', logInHandler(users));
+  app.post('/signup', signUpHandler(users));
 
   app.get('/logOut', logOutHandler);
+
+  app.get('/api/to-do', apiHandler);
 
   app.use(express.static('./public'));
   return app;

@@ -2,13 +2,14 @@
 
 - [ ] Create a page to view to-do list
 - [ ] Create a page to add new to-do list
-- [ ] Decide data model
 - [ ] Handle 404 error and give a link to login page
 - [ ] Generate login and serve
 - [ ] Collect more details about flash message
 
 ## DONE
 
+- [x] Decide data model
+- [x] Create api to serve data as json
 - [x] Add logout handler
 - [x] Add login and sign-up handlers
 - [x] Install `dotenv`

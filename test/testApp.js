@@ -62,3 +62,12 @@ describe('logout requests', () => {
       .expect(302, done);
   });
 });
+
+describe('apiHandler', () => {
+  it('Should serve to-do of specific user when path is GET /api/to-do', (done) => {
+    request(createApp())
+      .get('/api/to-do')
+      .expect('content-type', /json/)
+      .expect(200, done);
+  });
+});
