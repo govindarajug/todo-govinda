@@ -7,6 +7,7 @@ const { logInHandler } = require('./handlers/logInHandler');
 const { signUpHandler } = require('./handlers/signUpHandler');
 const { logOutHandler } = require('./handlers/logOutHandler');
 const { apiHandler } = require('./handlers/apiHandler');
+const { serveHomePage } = require('./handlers/serveHomePage');
 
 const createApp = () => {
   const users = ['spider'];
@@ -27,6 +28,7 @@ const createApp = () => {
   app.get('/logOut', logOutHandler);
 
   app.get('/api/to-do', apiHandler);
+  app.get('/', serveHomePage);
 
   app.use(express.static('./public'));
   return app;

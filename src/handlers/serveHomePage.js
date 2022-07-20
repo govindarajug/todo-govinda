@@ -1,18 +1,18 @@
-<html>
+const homePageTemplate = `<html>
 
 <head>
   <title>
     TO-DO
   </title>
   <link rel="stylesheet" href="styles/homepage.css">
-  <script src="scripts/xhrutils.js"></script>
+    <script src="scripts/xhrutils.js"></script>
   <script src="scripts/homepage.js"></script>
 </head>
 
 <body>
   <div class="pagewrapper">
     <header>
-      <h2 class="greeting">Hello</h2>
+      <h2 class="greeting">Hello Spiderman</h2>
       <h1>TO-DO</h1>
       <div class="logout"><a href="/logOut">logout</a></div>
     </header>
@@ -27,24 +27,15 @@
       <article class="newToDo">
         <div>Click to add new TO-DO</div>
       </article>
-      <article class="todoList">
-        <div class="title">Office</div>
-        <div class="items">
-          <div>Work</div>
-          <div>data</div>
-          <div>test</div>
-        </div>
-      </article>
-      <article class="todoList">
-        <div class="title">Home Work</div>
-        <div class="items">
-          <div>science</div>
-          <div>lab</div>
-          <div>DBMS</div>
-        </div>
-      </article>
     </main>
   </div>
 </body>
 
-</html>
+</html>`;
+
+const serveHomePage = (req, res) => {
+  res.set('content-type', 'text/html');
+  res.send(homePageTemplate);
+};
+
+module.exports = { serveHomePage };
