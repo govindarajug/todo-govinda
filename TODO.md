@@ -1,7 +1,6 @@
 ## TO-DO
 
 - [ ] add items in a list
-- [ ] Create a page to view to-do list
 - [ ] Create a page to add new to-do list
 - [ ] Handle 404 error and give a link to login page
 - [ ] Generate login and serve
@@ -9,6 +8,8 @@
 
 ## DONE
 
+- [x] Showing list view when clicked on a list
+- [x] Create a page to view to-do list
 - [x] Delete list
 - [x] Add npm setup to start the server when cloned
   - [x] Commit test data

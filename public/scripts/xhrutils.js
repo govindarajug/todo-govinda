@@ -6,7 +6,7 @@ const xhrGet = (path, onSuccess, onFailure = alertUser, body = '') => {
   const xhr = new XMLHttpRequest();
   xhr.onload = () => {
     if (xhr.status >= 200 && xhr.status <= 299) {
-      onSuccess(xhr);
+      onSuccess(xhr.response);
       return;
     }
     onFailure(xhr);
@@ -27,10 +27,10 @@ const xhrPost = (path, onSuccess, onFailure = alertUser, body = '', type = 'form
   const xhr = new XMLHttpRequest();
   xhr.onload = () => {
     if (xhr.status >= 200 && xhr.status <= 299) {
-      onSuccess(xhr);
+      onSuccess(xhr.response);
       return;
     }
-    onFailure(xhr);
+    onFailure(xhr.response);
   };
 
   xhr.open('POST', path);

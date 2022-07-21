@@ -1,8 +1,12 @@
 const fs = require('fs');
 
 const getJSON = (path) => {
-  let allToDo = fs.readFileSync(path, 'utf-8');
-  return JSON.parse(allToDo);
+  try {
+    let allToDo = fs.readFileSync(path, 'utf-8');
+    return JSON.parse(allToDo);
+  } catch (error) {
+    return {};
+  }
 };
 
 const storeJSON = (data, path) => {

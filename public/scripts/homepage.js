@@ -21,9 +21,32 @@ const createItems = (items) => {
 };
 
 const deleteList = (event) => {
-  console.log('clicked');
   const listId = event.target.id;
   xhrPost(`/delete/${listId}`, addTODOs);
+};
+
+const drawListView = (response) => {
+  const list = JSON.parse(response);
+  const container = document.querySelector('.listContainer');
+  if (list.title) {
+    const listEle = createElement(['article', 'todoList', '', list.id]);
+    const deleteListEle = createElement(['div', 'deleteList', 'X', list.id]);
+    deleteListEle.onclick = deleteList;
+    listEle.appendChild(deleteListEle);
+    listEle.onclick = viewList;
+    listEle.appendChild(createElement(['div', 'title', list.title]));
+    if (list.items) {
+      listEle.appendChild(createItems(list.items));
+    }
+    const backButton = createElement(['a', '', 'back']);
+    backButton['href'] = '/';
+    container.replaceChildren(listEle, backButton);
+  };
+};
+
+const viewList = (event) => {
+  const listId = event.target.id;
+  xhrGet(`/api/to-do/lists/${listId}`, drawListView);
 };
 
 const drawList = (list, listContainer) => {
@@ -32,6 +55,7 @@ const drawList = (list, listContainer) => {
     const deleteListEle = createElement(['div', 'deleteList', 'X', list.id]);
     deleteListEle.onclick = deleteList;
     listEle.appendChild(deleteListEle);
+    listEle.onclick = viewList;
     listEle.appendChild(createElement(['div', 'title', list.title]));
     if (list.items) {
       listEle.appendChild(createItems(list.items));
@@ -41,11 +65,11 @@ const drawList = (list, listContainer) => {
   return;
 };
 
-const addTODOs = (xhr) => {
+const addTODOs = (response) => {
   const container = document.querySelector('.listContainer');
   const newToDo = document.querySelector('.newTODO');
   container.replaceChildren(newToDo);
-  const userToDo = JSON.parse(xhr.response);
+  const userToDo = JSON.parse(response);
   userToDo.lists.forEach(list => {
     drawList(list, container);
   });

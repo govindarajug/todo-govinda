@@ -159,3 +159,29 @@ describe('delete lists', () => {
       .expect(200, done);
   });
 });
+
+describe('show lists', () => {
+  const config = {
+    key: 'somekey',
+    users: ['spider'],
+    dbPath: './test/db/toDo.json'
+  };
+  let cookie;
+  beforeEach((done) => {
+    request(createApp(config))
+      .post('/login')
+      .send('username=spider')
+      .end((err, res) => {
+        cookie = res.headers['set-cookie'];
+        done();
+      });
+  });
+
+  it('Should give list when path is GET /api/to-do/:id', (done) => {
+    request(createApp(config))
+      .get('/api/to-do/lists/2')
+      .set('Cookie', cookie)
+      .expect('content-type', /json/)
+      .expect(200, done);
+  });
+});

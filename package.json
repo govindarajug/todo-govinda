@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "setup": "bash .setup.sh",
+    "setup": "bash setup.sh",
     "start": "node index.js",
     "test": "mocha"
   },

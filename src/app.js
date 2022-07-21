@@ -13,9 +13,12 @@ const { getJSON } = require('./handlers/dataManager.js');
 
 const { addList } = require('./handlers/addListHandler.js');
 const { deleteList } = require('./handlers/deleteList');
+const { listApi } = require('./handlers/listApi');
+const { authenticationHandler } = require('./handlers/authenticationHandler');
 
 const createToDoRouter = (allToDo) => {
   const toDoRouter = express.Router();
+  toDoRouter.use(authenticationHandler);
   toDoRouter.use(injectToDo(allToDo));
   return toDoRouter;
 };
@@ -34,20 +37,22 @@ const createApp = (config) => {
   }));
 
   app.post('/login', logInHandler(config.users));
-  app.post('/signup', signUpHandler(config.users));
+  app.post('/signup', signUpHandler(config.users, allToDo));
 
   app.get('/logOut', logOutHandler);
 
+  app.use(express.static('./public'));
+
   toDoRouter = createToDoRouter(allToDo);
-  app.use('/', toDoRouter);
+  app.use(toDoRouter);
   toDoRouter.get('/api/to-do', apiHandler);
+  toDoRouter.get('/api/to-do/lists/:id', listApi);
   toDoRouter.get('/', serveHomePage);
 
   app.post('/addList', addList(allToDo, config.dbPath));
 
   app.post('/delete/:id', deleteList(allToDo, config.dbPath));
 
-  app.use(express.static('./public'));
   return app;
 };
 
