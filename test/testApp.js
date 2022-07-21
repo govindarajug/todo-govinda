@@ -29,11 +29,11 @@ describe('login requests', () => {
       .expect(302, done);
   });
 
-  it('Should redirect to signup if not signedup', (done) => {
+  it('Should redirect to login if credentials are wrong', (done) => {
     request(createApp(config))
       .post('/login')
       .send('username=abcd')
-      .expect('location', '/signup.html')
+      .expect('location', '/login.html')
       .expect(302, done);
   });
 });
