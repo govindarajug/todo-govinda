@@ -13,13 +13,6 @@ describe('Static File Serving', () => {
       .expect('content-type', /text\/html/)
       .expect(200, done);
   });
-
-  it('It should serve home page when path GET /', (done) => {
-    request(createApp(config))
-      .get('/')
-      .expect('content-type', /text\/html/)
-      .expect(200, done);
-  });
 });
 
 describe('login requests', () => {
