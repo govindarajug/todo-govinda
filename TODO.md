@@ -1,6 +1,5 @@
 ## TO-DO
 
-- [ ] Add npm setup to start the server when cloned
 - [ ] Create a page to view to-do list
 - [ ] Create a page to add new to-do list
 - [ ] Handle 404 error and give a link to login page
@@ -9,6 +8,10 @@
 
 ## DONE
 
+- [x] Add npm setup to start the server when cloned
+  - [x] Commit test data
+  - [x] Create .env
+  - [x] Create a empty db directory and toDo.json
 - [x] Send request to add list handler on click to add new list
 - [x] Create handler to add lists
 - [x] Create home page using api

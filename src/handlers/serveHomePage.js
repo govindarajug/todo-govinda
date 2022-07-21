@@ -25,12 +25,12 @@ const homePageTemplate = `<html>
       </ul>
     </nav>
     <main class="listContainer">
-      <form class="newTODO">
+      <form method="post" action="/addList" class="newTODO">
         <label for="title"></label>
         <input type="text" name="title" id="title" placeholder="Title your TO-DO">
         <label for="item"></label>
         <input type="text" name="item" id="item" placeholder="new items">
-        <input type="button" value="save" id="save">
+        <input type="submit" value="save" id="save">
       </form>
     </main>
   </div>

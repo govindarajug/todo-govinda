@@ -9,7 +9,6 @@ const addList = (allToDo, dbPath) => {
     req.toDo.lists.push(newList);
     storeJSON(allToDo, dbPath);
     res.redirect('/');
-    // res.end();
   };
 };
 

@@ -9,15 +9,6 @@ const createElement = ([tag, className = '', text = '']) => {
   return element;
 };
 
-const redrawScreen = () => {
-  xhrGet('/', (x) => { });
-};
-
-const addNewTODO = () => {
-  xhrPost('/addList', null, null, getFormData('.newTODO'));
-  return;
-};
-
 const createItems = (items) => {
   const itemsElement = createElement(['div', 'items']);
   items.forEach(item => {
@@ -49,8 +40,6 @@ const addTODOs = (xhr) => {
 };
 
 const main = () => {
-  const addTODOElement = document.querySelector('#save');
-  addTODOElement.addEventListener('click', addNewTODO);
   xhrGet('/api/to-do', addTODOs);
   return;
 };
