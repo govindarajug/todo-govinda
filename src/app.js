@@ -1,7 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
 const cookieSession = require('cookie-session');
-require('dotenv').config();
 
 const { logInHandler } = require('./handlers/logInHandler');
 const { signUpHandler } = require('./handlers/signUpHandler');
@@ -9,9 +8,11 @@ const { logOutHandler } = require('./handlers/logOutHandler');
 
 const { apiHandler } = require('./handlers/apiHandler.js');
 const { serveHomePage } = require('./handlers/serveHomePage.js');
-const { addList } = require('./handlers/addListHandler.js');
 const { injectToDo } = require('./handlers/injectToDo.js');
 const { getJSON } = require('./handlers/dataManager.js');
+
+const { addList } = require('./handlers/addListHandler.js');
+const { deleteList } = require('./handlers/deleteList');
 
 const createToDoRouter = (allToDo) => {
   const toDoRouter = express.Router();
@@ -43,6 +44,8 @@ const createApp = (config) => {
   toDoRouter.get('/', serveHomePage);
 
   app.post('/addList', addList(allToDo, config.dbPath));
+
+  app.post('/delete/:id', deleteList(allToDo, config.dbPath));
 
   app.use(express.static('./public'));
   return app;

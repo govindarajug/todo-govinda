@@ -17,20 +17,11 @@ const homePageTemplate = `<html>
       <h1>TO-DO</h1>
       <div class="logout"><a href="/logOut">logout</a></div>
     </header>
-    <nav class="sidebar">
-      <ul>
-        <li><a href="#">Grocery</a></li>
-        <li><a href="#">Office</a></li>
-        <li><a href="#">Homework</a></li>
-      </ul>
-    </nav>
     <main class="listContainer">
       <form method="post" action="/addList" class="newTODO">
         <label for="title"></label>
         <input type="text" name="title" id="title" placeholder="Title your TO-DO">
-        <label for="item"></label>
-        <input type="text" name="item" id="item" placeholder="new items">
-        <input type="submit" value="save" id="save">
+        <input type="submit" value="Add" id="save">
       </form>
     </main>
   </div>

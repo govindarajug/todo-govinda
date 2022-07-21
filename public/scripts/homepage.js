@@ -1,6 +1,9 @@
-const createElement = ([tag, className = '', text = '']) => {
+const createElement = ([tag, className = '', text = '', id = '']) => {
   const element = document.createElement(tag);
   element.className = className;
+  if (id) {
+    element.id = id;
+  }
   if (Array.isArray(text)) {
     element.appendChild(createElement(text));
     return element;
@@ -12,15 +15,23 @@ const createElement = ([tag, className = '', text = '']) => {
 const createItems = (items) => {
   const itemsElement = createElement(['div', 'items']);
   items.forEach(item => {
-    itemsElement.appendChild(createElement(['div', '', item.description]));
+    itemsElement.appendChild(createElement(['div', '', item.description, item.id]));
   });
   return itemsElement;
 };
 
+const deleteList = (event) => {
+  console.log('clicked');
+  const listId = event.target.id;
+  xhrPost(`/delete/${listId}`, addTODOs);
+};
+
 const drawList = (list, listContainer) => {
   if (list.title) {
-    const listEle = document.createElement('article');
-    listEle.className = 'todoList';
+    const listEle = createElement(['article', 'todoList', '', list.id]);
+    const deleteListEle = createElement(['div', 'deleteList', 'X', list.id]);
+    deleteListEle.onclick = deleteList;
+    listEle.appendChild(deleteListEle);
     listEle.appendChild(createElement(['div', 'title', list.title]));
     if (list.items) {
       listEle.appendChild(createItems(list.items));
@@ -32,6 +43,8 @@ const drawList = (list, listContainer) => {
 
 const addTODOs = (xhr) => {
   const container = document.querySelector('.listContainer');
+  const newToDo = document.querySelector('.newTODO');
+  container.replaceChildren(newToDo);
   const userToDo = JSON.parse(xhr.response);
   userToDo.lists.forEach(list => {
     drawList(list, container);

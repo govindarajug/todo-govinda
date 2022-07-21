@@ -14,30 +14,9 @@ header {
   justify-content: space-evenly;
 }
 
-.sidebar {
-  padding: 1.5em 0;
-  width: 350px;
-  height: 100%;
-  background-color: rgb(244, 244, 244);
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  font-size: 1.2em;
-}
-
-.sidebar>ul>li {
-  list-style: none;
-}
-
-.sidebar a {
-  padding: 0.4em 1em;
-  display: block;
-  text-decoration: none;
-}
-
 .listContainer {
   padding: 1.5em;
-  margin-left: 400px;
+  margin-left: 300px;
   display: flex;
   flex-wrap: wrap;
   gap: 1.5em;
@@ -77,4 +56,15 @@ header {
   position: relative;
   top: 6.5em;
   left: 11em;
+}
+
+.deleteList {
+  border: 0.3px solid grey;
+  float: right;
+  padding: 0.5em;
+  border-radius: 50%;
+  background-color: rgb(70 159 2);
+  position: relative;
+  top: -1em;
+  right: -1em;
 }

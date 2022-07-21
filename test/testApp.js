@@ -134,3 +134,28 @@ describe('addListHandler', () => {
       .expect(302, done);
   });
 });
+
+describe('delete lists', () => {
+  const config = {
+    key: 'somekey',
+    users: ['spider'],
+    dbPath: './test/db/toDo.json'
+  };
+  let cookie;
+  beforeEach((done) => {
+    request(createApp(config))
+      .post('/login')
+      .send('username=spider')
+      .end((err, res) => {
+        cookie = res.headers['set-cookie'];
+        done();
+      });
+  });
+
+  it('Should delete list when path is POST /delete/:id', (done) => {
+    request(createApp(config))
+      .post('/delete/1658381052450')
+      .set('Cookie', cookie)
+      .expect(200, done);
+  });
+});

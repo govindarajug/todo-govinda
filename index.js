@@ -1,4 +1,5 @@
 const { createApp } = require("./src/app.js");
+require('dotenv').config();
 
 const startServer = (port) => {
   const config = {

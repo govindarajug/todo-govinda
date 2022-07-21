@@ -1,5 +1,6 @@
 ## TO-DO
 
+- [ ] add items in a list
 - [ ] Create a page to view to-do list
 - [ ] Create a page to add new to-do list
 - [ ] Handle 404 error and give a link to login page
@@ -8,6 +9,7 @@
 
 ## DONE
 
+- [x] Delete list
 - [x] Add npm setup to start the server when cloned
   - [x] Commit test data
   - [x] Create .env
