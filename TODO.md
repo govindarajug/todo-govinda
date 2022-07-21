@@ -8,7 +8,11 @@
 
 ## DONE
 
-- [x] Showing list view when clicked on a list
+- [x] Redirect to login when credentials are wrong
+- [x] Make password hidden on typing
+- [x] Extract createElement to a new script
+- [x] Show list view when clicked on a list
+- [x] Show status of the item
 - [x] Create a page to view to-do list
 - [x] Delete list
 - [x] Add npm setup to start the server when cloned

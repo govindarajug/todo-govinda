@@ -7,13 +7,14 @@ const homePageTemplate = `<html>
   <link rel="stylesheet" href="styles/homepage.css">
     <script src="scripts/xhrutils.js"></script>
     <script src="scripts/formUtils.js"></script>
+    <script src="scripts/createElement.js"></script>
   <script src="scripts/homepage.js"></script>
 </head>
 
 <body>
   <div class="pagewrapper">
     <header>
-      <h2 class="greeting">Hello Spiderman</h2>
+      <h2 class="greeting">Hello</h2>
       <h1>TO-DO</h1>
       <div class="logout"><a href="/logOut">logout</a></div>
     </header>

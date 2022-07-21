@@ -3,7 +3,7 @@ const logInHandler = (users) => {
     const { username } = req.body;
     if (username) {
       if (!users.includes(username)) {
-        res.redirect('/signup.html');
+        res.redirect('/login.html');
         return;
       };
 

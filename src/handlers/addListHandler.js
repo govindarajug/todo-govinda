@@ -5,6 +5,7 @@ const addList = (allToDo, dbPath) => {
     const newList = {
       id: new Date().getTime().toString(),
       title: req.body.title,
+      items: []
     };
     req.toDo.lists.push(newList);
     storeJSON(allToDo, dbPath);
