@@ -44,11 +44,11 @@ describe('signup requests', () => {
     users: ['spider'],
     dbPath: './test/db/toDo.json'
   };
-  it('Should redirect to login after signingup', (done) => {
+  it('Should redirect to home after signingup', (done) => {
     request(createApp(config))
       .post('/signup')
       .send('username=abcd')
-      .expect('location', '/login.html')
+      .expect('location', '/')
       .expect(302, done);
   });
 

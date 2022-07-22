@@ -7,8 +7,8 @@ const signUpHandler = (users, allToDo) => {
     }
     users.push(username);
     allToDo[username] = { username, lists: [] };
-    res.redirect('/login.html');
-    return;
+    req.session = { id: new Date().getTime().toString(), username };
+    res.redirect('/');
   };
 };
 

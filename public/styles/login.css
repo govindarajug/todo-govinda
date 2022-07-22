@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 50%;
+  margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.4em;
+  font-size: 20px;
+  background-color: rgb(153 143 143 / 50%);
+}
+
+.card {
+  margin: 15em auto;
+  background-color: white;
+  width: 450px;
+  padding-top: 1em;
+  box-sizing: border-box;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  color: rgba(0, 0, 0, 0.829);
+  height: 450px;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.create {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header .heading {
+  text-align: center;
+  padding: 1em 0em;
+}
+
+header .heading>* {
+  margin: 0.2em;
+}
+
+header .heading h1 {
+  font-weight: 500;
+  font-size: 2.2em;
+}
+
+main>* {
+  width: 70%;
+}
+
+.card main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info>div>input {
+  border: 2px solid lightgrey;
+  border-radius: 0.8em;
+  margin: 0.5em 0em;
+  padding: 0.75em;
+  color: grey;
+  width: 250px;
+}
+
+.create .button {
+  text-align: center;
+  color: white;
+  padding: 0.4em;
+  font-size: 1em;
+  width: 5em;
+  border-radius: 1em;
+  font-weight: 500;
+  margin: 10px 0px;
+}
+
+.button {
+  background-color: hsl(0deg 5% 58%);
+}
+
+.bold {
+  font-weight: 600;
+  color: black;
+}
+
+.card .footer {
+  background-color: rgba(211, 211, 211, 0.3);
+  width: 100%;
+  text-align: center;
+  padding: 1.2em;
+  font-weight: 300;
+}

@@ -1,13 +1,14 @@
 ## TO-DO
 
+- [ ] add mark done and undone feature
 - [ ] add feature delete items in a list
-- [ ] Create a page to add new to-do list
 - [ ] Handle 404 error and give a link to login page
 - [ ] Generate login and serve
 - [ ] Collect more details about flash message
 
 ## DONE
 
+- [x] add css for login and sign-up pages
 - [x] add items in a list
   - [x] add handler to add item in a list
   - [x] make request to add item on enter in view

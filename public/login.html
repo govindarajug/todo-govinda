@@ -1,30 +1,31 @@
 <html>
 
 <head>
-  <title>Login Page</title>
+  <title>Login</title>
+  <link rel="stylesheet" href="styles/login.css" />
 </head>
 
 <body>
-  <h1>
-    TO-DO
-  </h1>
-  <div class="page-wrapper">
-    <div class="login">
-      <h2>Login</h2>
-      <form action="/login" method="post">
+  <div class="card">
+    <header>
+      <div class="heading">
+        <h1>Welcome to Todo</h1>
+        <div class="tagline">space to keep track of your todo</div>
+      </div>
+    </header>
+    <form class="create" action="/login" method="post">
+      <div class="info">
         <div>
-          <label for="username">username</label>
-          <input type="text" name="username" id="username">
+          <input type="text" name="username" id="username" placeholder="Username">
         </div>
         <div>
-          <label for="password">password</label>
-          <input type="password" name="password" id="password">
+          <input type="password" name="password" id="password" placeholder="Password">
         </div>
-        <input type="submit" value="login">
-      </form>
-    </div>
-    <div class="sign-up">
-      Don't have an account? <a href="signup.html">sign-up</a>
+      </div>
+      <input type="submit" value="Login" class="button">
+    </form>
+    <div class="footer">
+      Don't have an account? <a href="signup.html">Sign-up</a>
     </div>
   </div>
 </body>

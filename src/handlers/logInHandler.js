@@ -12,7 +12,6 @@ const logInHandler = (users) => {
       return;
     }
     res.redirect('/login.html');
-    return;
   };
 };
 
