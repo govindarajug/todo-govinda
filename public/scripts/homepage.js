@@ -3,7 +3,7 @@ const createItems = (items) => {
   items.forEach(item => {
     itemsElement.appendChild(createElementTree(
       ['div', { id: item.id, className: 'item' }, [
-        ['div', { className: 'status' }, item.done ? 'done' : 'undone'],
+        ['div', { className: 'status' }, item.done ? '✅' : '❌'],
         ['div', {}, item.description]]
       ])
     );

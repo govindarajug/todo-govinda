@@ -3,11 +3,12 @@ const createItems = (items) => {
   items.forEach(item => {
     const itemEle = createElementTree(
       ['div', { id: item.id, className: 'item' }, [
-        ['input', { type: 'checkbox', checked: item.done }, ''],
+        ['input', { type: 'checkbox', checked: item.done, className: 'itemStatus' }, ''],
         ['label', { for: item.description }, item.description],
         ['div', { className: 'deleteItem' }, 'X']]
       ]);
     itemEle.querySelector('.deleteItem').onclick = deleteItem;
+    itemEle.querySelector('.itemStatus').onclick = markItem;
     itemsElement.appendChild(itemEle);
   });
   return itemsElement;
@@ -31,6 +32,12 @@ const drawList = (list, listContainer, task) => {
     listContainer[task](listEle);
   }
   return;
+};
+
+const markItem = (event) => {
+  const itemId = event.target.parentElement.id;
+  const listId = event.target.parentNode.parentNode.parentNode.id;
+  xhrPost(`/mark/${listId}/${itemId}`, updateScreen);
 };
 
 const deleteItem = (event) => {

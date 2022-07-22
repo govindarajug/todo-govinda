@@ -1,14 +1,15 @@
 ## TO-DO
 
-- [ ] add mark done and undone feature
-  - [x] make a handler which will toggle status of item
-  - [ ] update the view of the screen when clicked
+- [ ] Style the home page and view page
 - [ ] Handle 404 error and give a link to login page
 - [ ] Generate login and serve
 - [ ] Collect more details about flash message
 
 ## DONE
 
+- [x] add mark done and undone feature
+  - [x] make a handler which will toggle status of item
+  - [x] update the view of the screen when clicked
 - [x] add feature delete items in a list
   - [x] make a handler to delete item
   - [x] add a click event on a items to delete
