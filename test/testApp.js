@@ -229,3 +229,28 @@ describe('delete item', () => {
       .expect(200, done);
   });
 });
+
+describe('mark item', () => {
+  const config = {
+    key: 'somekey',
+    users: ['spider'],
+    dbPath: './test/db/toDo.json'
+  };
+  let cookie;
+  beforeEach((done) => {
+    request(createApp(config))
+      .post('/login')
+      .send('username=spider')
+      .end((err, res) => {
+        cookie = res.headers['set-cookie'];
+        done();
+      });
+  });
+
+  it('Should toggle item status when path is POST /mark/:listId/:itemId', (done) => {
+    request(createApp(config))
+      .post('/mark/1/2')
+      .set('Cookie', cookie)
+      .expect(200, done);
+  });
+});

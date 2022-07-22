@@ -1,6 +1,8 @@
 ## TO-DO
 
 - [ ] add mark done and undone feature
+  - [x] make a handler which will toggle status of item
+  - [ ] update the view of the screen when clicked
 - [ ] Handle 404 error and give a link to login page
 - [ ] Generate login and serve
 - [ ] Collect more details about flash message

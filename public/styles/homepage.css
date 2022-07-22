@@ -103,3 +103,7 @@ header {
 .addNewItem {
   visibility: hidden;
 }
+
+.deleteItem {
+  cursor: pointer;
+}

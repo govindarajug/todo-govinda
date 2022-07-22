@@ -18,6 +18,7 @@ const { authenticationHandler } = require('./handlers/authenticationHandler');
 const { serveListPage } = require('./handlers/serveListPage');
 const { addItem } = require('./handlers/addItemHandler');
 const { deleteItem } = require('./handlers/deleteItem');
+const { markItemStatus } = require('./handlers/markItem');
 
 const createToDoRouter = (allToDo) => {
   const toDoRouter = express.Router();
@@ -56,6 +57,7 @@ const createApp = (config) => {
   toDoRouter.post('/addList', addList(allToDo, config.dbPath));
   toDoRouter.post('/lists/:id/addItem', addItem(allToDo, config.dbPath));
   toDoRouter.post('/delete/:id/:itemId', deleteItem(allToDo, config.dbPath));
+  toDoRouter.post('/mark/:id/:itemId', markItemStatus(allToDo, config.dbPath));
 
   app.post('/delete/:id', deleteList(allToDo, config.dbPath));
 
