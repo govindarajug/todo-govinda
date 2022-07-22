@@ -1,15 +1,15 @@
 ## TO-DO
 
 - [ ] add mark done and undone feature
-- [ ] add feature delete items in a list
-  - [x] make a handler to delete item
-  - [ ] add a click event on a items to delete
 - [ ] Handle 404 error and give a link to login page
 - [ ] Generate login and serve
 - [ ] Collect more details about flash message
 
 ## DONE
 
+- [x] add feature delete items in a list
+  - [x] make a handler to delete item
+  - [x] add a click event on a items to delete
 - [x] add css for login and sign-up pages
 - [x] add items in a list
   - [x] add handler to add item in a list
