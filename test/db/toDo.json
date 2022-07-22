@@ -3,81 +3,36 @@
     "username": "spider",
     "lists": [
       {
-        "id": 1,
+        "id": "1",
         "title": "HomeWork",
         "items": [
           {
-            "id": 1,
+            "id": "1",
             "description": "science",
-            "status": "done"
+            "done": true
           },
           {
-            "id": 2,
+            "id": "2",
             "description": "lab",
-            "status": "done"
+            "done": false
           }
         ]
       },
       {
-        "id": 2,
+        "id": "2",
         "title": "Office",
-        "lastId": 2,
         "items": [
           {
-            "id": 1,
+            "id": "1",
             "description": "assignment",
-            "status": "undone"
+            "done": true
           },
           {
-            "id": 2,
+            "id": "2",
             "description": "test",
-            "status": "undone"
+            "done": false
           }
         ]
-      },
-      {
-        "id": "1658379816796",
-        "title": "newlist"
-      },
-      {
-        "id": "1658379851990",
-        "title": "newlist"
-      },
-      {
-        "id": "1658380206413",
-        "title": "newlist"
-      },
-      {
-        "id": "1658380343310",
-        "title": "newlist"
-      },
-      {
-        "id": "1658380434397",
-        "title": "newlist"
-      },
-      {
-        "id": "1658380466652",
-        "title": "newlist"
-      },
-      {
-        "id": "1658380507781",
-        "title": "newlist"
-      },
-      {
-        "id": "1658380528709",
-        "title": "newlist"
-      },
-      {
-        "id": "1658380554725",
-        "title": "newlist"
-      },
-      {
-        "id": "1658381017614",
-        "title": "newlist"
-      },
-      {
-        "id": "1658381123015",
-        "title": "newlist"
       }
     ]
   }
