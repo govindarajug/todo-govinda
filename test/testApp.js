@@ -204,3 +204,28 @@ describe('add item', () => {
       .expect(200, done);
   });
 });
+
+describe('delete item', () => {
+  const config = {
+    key: 'somekey',
+    users: ['spider'],
+    dbPath: './test/db/toDo.json'
+  };
+  let cookie;
+  beforeEach((done) => {
+    request(createApp(config))
+      .post('/login')
+      .send('username=spider')
+      .end((err, res) => {
+        cookie = res.headers['set-cookie'];
+        done();
+      });
+  });
+
+  it('Should add item when path is POST /deleteItem/:listId/:itemId', (done) => {
+    request(createApp(config))
+      .post('/delete/2/1658494765921')
+      .set('Cookie', cookie)
+      .expect(200, done);
+  });
+});
