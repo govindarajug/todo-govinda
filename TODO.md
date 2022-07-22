@@ -1,6 +1,6 @@
 ## TO-DO
 
-- [ ] add items in a list
+- [ ] add feature delete items in a list
 - [ ] Create a page to add new to-do list
 - [ ] Handle 404 error and give a link to login page
 - [ ] Generate login and serve
@@ -8,6 +8,9 @@
 
 ## DONE
 
+- [x] add items in a list
+  - [x] add handler to add item in a list
+  - [x] make request to add item on enter in view
 - [x] Redirect to login when credentials are wrong
 - [x] Make password hidden on typing
 - [x] Extract createElement to a new script

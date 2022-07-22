@@ -78,3 +78,16 @@ header {
   top: -1em;
   right: -1em;
 }
+
+.item {
+  display: flex;
+  gap: 1em;
+}
+
+.item .status {
+  border: 0.3px solid grey;
+}
+
+.addNewItem {
+  visibility: hidden;
+}

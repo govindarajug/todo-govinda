@@ -2,9 +2,9 @@ const createItems = (items) => {
   const itemsElement = createElementTree(['div', { className: 'items' }, []]);
   items.forEach(item => {
     itemsElement.appendChild(createElementTree(
-      ['div', { id: item.id }, [
-        ['input', { type: 'checkbox', checked: item.done }, ''],
-        ['label', { for: item.description }, item.description]]
+      ['div', { id: item.id, className: 'item' }, [
+        ['div', { className: 'status' }, item.done ? 'done' : 'undone'],
+        ['div', {}, item.description]]
       ])
     );
   });

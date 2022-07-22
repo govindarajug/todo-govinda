@@ -19,13 +19,6 @@ const listPageTemplate = `<html>
       <div class="back"><a href="/">back</a></div>
     </header>
     <main class="listContainer">
-      <form method="post" action="/addList" class="newTODO">
-        <div>
-          <label for="item"></label>
-          <input type="text" name="title" id="title" placeholder="Add your items">
-        </div>
-        <input type="submit" value="Add" id="save">
-      </form>
     </main>
   </div>
 </body>
