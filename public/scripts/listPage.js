@@ -25,10 +25,8 @@ const drawList = (list, listContainer, task) => {
     }
     listEle.appendChild(createElementTree(
       ['form', { className: 'addItem' },
-        [['div', {}, [
-          ['label', { for: 'newItem' }, ''],
-          ['input', { type: 'text', name: 'newItem', id: 'newItem', placeholder: 'Add item' }, '']
-        ]]]]));
+        [['input', { type: 'text', name: 'newItem', id: 'newItem', placeholder: 'Add item', required: 'required' }, '']
+        ]]));
     listContainer[task](listEle);
   }
   return;

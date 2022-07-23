@@ -21,7 +21,7 @@ const homePageTemplate = `<html>
     <main class="listContainer">
       <form method="post" action="/addList" class="newTODO">
         <label for="title"></label>
-        <input type="text" name="title" id="title" placeholder="Title your TO-DO">
+        <input type="text" name="title" id="title" placeholder="Title your TO-DO" required="required">
         <input type="submit" value="Add" id="save">
       </form>
     </main>

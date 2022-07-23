@@ -8,6 +8,7 @@
 
 ## DONE
 
+- [x] Make username and password fields required
 - [x] Show the error message in login
 - [x] Show the error message in sign-up
 - [x] choose a theme for todo
