@@ -1,10 +1,11 @@
 const { createApp } = require("./src/app.js");
+const { getJSON } = require('./src/handlers/dataManager.js');
 require('dotenv').config();
 
 const startServer = (port) => {
   const config = {
     key: process.env.key,
-    users: ['spider'],
+    users: getJSON('./db/users.json'),
     dbPath: process.env.dbPath
   };
 

@@ -1,14 +1,26 @@
+const { storeJSON } = require('./dataManager.js');
+
 const signUpHandler = (users, allToDo) => {
   return (req, res) => {
     const { username } = req.body;
-    if (users.includes(username)) {
+    const { password } = req.body;
+    let newUsername = username.toLowerCase();
+    if (users[newUsername]) {
       res.cookie('message', 'Username already in use.', { maxAge: 1000 });
       res.redirect('/signup');
       return;
     }
-    users.push(username);
-    allToDo[username] = { username, lists: [] };
-    req.session = { id: new Date().getTime().toString(), username };
+
+    users[newUsername] = {
+      "username": newUsername,
+      "password": password
+    };
+    storeJSON(users, './db/users.json');
+    allToDo[newUsername] = { newUsername, lists: [] };
+    req.session = {
+      id: new Date().getTime().toString(),
+      'username': newUsername
+    };
     res.redirect('/');
   };
 };

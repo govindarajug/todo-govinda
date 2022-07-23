@@ -69,11 +69,10 @@ header {
   font-size: 1.6em;
 } */
 
-/* .newTODO #save {
-  position: relative;
-  top: 6.5em;
-  left: 11em;
-} */
+.newTODO #save {
+  border-radius: 0.5em;
+  padding: 0.3em;
+}
 
 .deleteList {
   border: 0.3px solid grey;
@@ -126,12 +125,17 @@ header>.sidebar {
   gap: 1em;
 }
 
+#title::placeholder {
+  color: #f5f5f596;
+}
+
 .newTODO>#title {
   width: 70%;
   border: none;
-  border-bottom: 1px solid lightblue;
-  border-radius: 0.3em;
+  border-bottom: 1px solid #f5f5f596;
   height: 2em;
+  color: white;
+  background-color: inherit;
 }
 
 .delete {
@@ -149,7 +153,7 @@ header>.sidebar {
   padding: 1em;
   background-color: #72BBCE;
   color: #F1FAEE;
-  border-radius: 0.6em;
+  border-radius: 0.3em;
 }
 
 .view>.title {
