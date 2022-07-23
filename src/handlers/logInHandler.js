@@ -3,7 +3,6 @@ const logInHandler = (users) => {
     const { username } = req.body;
     if (username) {
       const newUsername = username.toLowerCase();
-      console.log(users[newUsername]);
       if (!users[newUsername]) {
         res.cookie('message', 'Username or password incorrect.', { maxAge: 1000 });
         res.redirect('/login');

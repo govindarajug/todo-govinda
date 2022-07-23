@@ -1,10 +1,11 @@
 const request = require('supertest');
 const { createApp } = require('../src/app.js');
+const { getJSON } = require('../src/handlers/dataManager.js');
 
 describe('login requests', () => {
   const config = {
     key: 'somekey',
-    users: ['spider'],
+    users: getJSON('./test/db/users.json'),
     dbPath: './test/db/toDo.json'
   };
   it('Should redirect to homepage when credentials are correct', (done) => {
@@ -27,7 +28,7 @@ describe('login requests', () => {
 describe('signup requests', () => {
   const config = {
     key: 'somekey',
-    users: ['spider'],
+    users: getJSON('./test/db/users.json'),
     dbPath: './test/db/toDo.json'
   };
   it('Should redirect to home after signingup', (done) => {
@@ -50,7 +51,7 @@ describe('signup requests', () => {
 describe('logout requests', () => {
   const config = {
     key: 'somekey',
-    users: ['spider'],
+    users: getJSON('./test/db/users.json'),
     dbPath: './test/db/toDo.json'
   };
   it('Should redirect to login after logging out', (done) => {
@@ -65,7 +66,7 @@ describe('logout requests', () => {
 describe('apiHandler', () => {
   const config = {
     key: 'somekey',
-    users: ['spider'],
+    users: getJSON('./test/db/users.json'),
     dbPath: './test/db/toDo.json'
   };
   let cookie;
@@ -91,7 +92,7 @@ describe('apiHandler', () => {
 describe('addListHandler', () => {
   const config = {
     key: 'somekey',
-    users: ['spider'],
+    users: getJSON('./test/db/users.json'),
     dbPath: './test/db/toDo.json'
   };
   let cookie;
@@ -117,7 +118,7 @@ describe('addListHandler', () => {
 describe('delete lists', () => {
   const config = {
     key: 'somekey',
-    users: ['spider'],
+    users: getJSON('./test/db/users.json'),
     dbPath: './test/db/toDo.json'
   };
   let cookie;
@@ -142,7 +143,7 @@ describe('delete lists', () => {
 describe('show lists', () => {
   const config = {
     key: 'somekey',
-    users: ['spider'],
+    users: getJSON('./test/db/users.json'),
     dbPath: './test/db/toDo.json'
   };
   let cookie;
@@ -168,7 +169,7 @@ describe('show lists', () => {
 describe('add item', () => {
   const config = {
     key: 'somekey',
-    users: ['spider'],
+    users: getJSON('./test/db/users.json'),
     dbPath: './test/db/toDo.json'
   };
   let cookie;
@@ -194,7 +195,7 @@ describe('add item', () => {
 describe('delete item', () => {
   const config = {
     key: 'somekey',
-    users: ['spider'],
+    users: getJSON('./test/db/users.json'),
     dbPath: './test/db/toDo.json'
   };
   let cookie;
@@ -219,7 +220,7 @@ describe('delete item', () => {
 describe('mark item', () => {
   const config = {
     key: 'somekey',
-    users: ['spider'],
+    users: getJSON('./test/db/users.json'),
     dbPath: './test/db/toDo.json'
   };
   let cookie;
