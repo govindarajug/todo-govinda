@@ -2,8 +2,10 @@ const homePageTemplate = `<html>
 
 <head>
   <title>
-    TO-DO
+    TODO
   </title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
   <link rel="stylesheet" href="styles/homepage.css">
     <script src="scripts/xhrutils.js"></script>
     <script src="scripts/formUtils.js"></script>
@@ -14,14 +16,14 @@ const homePageTemplate = `<html>
 <body>
   <div class="pagewrapper">
     <header>
-      <h2 class="greeting">Hello</h2>
-      <h1>TO-DO</h1>
-      <div class="logout"><a href="/logOut">logout</a></div>
+      <h1>TODO</h1>
+      <div class="sidebar"><div class="username">__USER__</div>
+        <div class="logout"><a href="/logOut">logout</a></div>
+      </div>
     </header>
     <main class="listContainer">
-      <form method="post" action="/addList" class="newTODO">
-        <label for="title"></label>
-        <input type="text" name="title" id="title" placeholder="Title your TO-DO" required="required">
+      <form method="post" action="/addList" class="newTODO item">
+        <input type="text" name="title" id="title" placeholder="Title your TODO" required="required">
         <input type="submit" value="Add" id="save">
       </form>
     </main>
@@ -31,8 +33,10 @@ const homePageTemplate = `<html>
 </html>`;
 
 const serveHomePage = (req, res) => {
+  const { username } = req.session;
+  const content = homePageTemplate.replace('__USER__', username);
   res.set('content-type', 'text/html');
-  res.send(homePageTemplate);
+  res.send(content);
 };
 
 module.exports = { serveHomePage };

@@ -1,13 +1,15 @@
 ## TO-DO
 
-- [ ] Change the design of home and view page
-- [ ] Style the home page and view page
+- [ ] Persist users data
+- [ ] Add password check 
 - [ ] Handle 404 error and give a link to login page
 - [ ] Collect more details about flash message
 - [ ] Generate html instead of reading from templates
 
 ## DONE
 
+- [x] Style the home page and view page
+- [x] Change the design of home and view page
 - [x] Make username and password fields required
 - [x] Show the error message in login
 - [x] Show the error message in sign-up

@@ -3,9 +3,16 @@
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: #DCEEF3;
+}
+
 .pagewrapper {
   font-family: sans-serif;
-  background-color: #F1FAEE;
   width: 100%;
   height: 100%;
 }
@@ -14,27 +21,41 @@ header {
   display: flex;
   height: 2em;
   justify-content: space-evenly;
+  align-items: center;
+  padding-top: 2em;
 }
 
-.listContainer {
+.listContainer,
+.view {
+  margin: 1em auto;
   padding: 1.5em;
-  margin-left: 300px;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
   gap: 1.5em;
+  width: 600px;
 }
 
 .clickable {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  color: white;
 }
 
-.todoList {
+/* .todoList {
   position: relative;
-}
+} */
 
-.listContainer .newTODO {
+/* .listContainer .add { */
+/* width: 350px;
+  height: 300px;
+  border: 0.6px solid lightgray;
+  border-radius: 0.7em;
+  padding: 0.5em;
+  font-size: 0.8em;
+  background-color: whitesmoke; */
+/* } */
+
+/* .listContainer .todoList {
   width: 350px;
   height: 300px;
   border: 0.6px solid lightgray;
@@ -42,43 +63,17 @@ header {
   padding: 0.5em;
   font-size: 0.8em;
   background-color: whitesmoke;
-}
+} */
 
-.listContainer .todoList {
-  width: 350px;
-  height: 300px;
-  border: 0.6px solid lightgray;
-  border-radius: 0.7em;
-  padding: 0.5em;
-  font-size: 0.8em;
-  background-color: whitesmoke;
-}
-
-.todoList>.title {
+/* .todoList>.title {
   font-size: 1.6em;
-}
+} */
 
-.newTODO #title {
-  width: 100%;
-  height: 70;
-  border-radius: 10px;
-  text-align: center;
-}
-
-.newTODO #item {
-  position: relative;
-  top: 6.5em;
-  width: 100%;
-  height: 50;
-  border-radius: 10px;
-  text-align: center;
-}
-
-.newTODO #save {
+/* .newTODO #save {
   position: relative;
   top: 6.5em;
   left: 11em;
-}
+} */
 
 .deleteList {
   border: 0.3px solid grey;
@@ -91,9 +86,27 @@ header {
   right: -1em;
 }
 
-.item {
+.listContainer>.item {
   display: flex;
+  justify-content: space-between;
   gap: 1em;
+  border: 1px solid lightgray;
+  width: 100%;
+  padding: 1em;
+  background-color: #72BBCE;
+  color: #F1FAEE;
+  border-radius: 0.6em;
+}
+
+.listContainer>.newTODO {
+  display: flex;
+  padding: 0.5em 1em;
+}
+
+.listContainer>.newItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em 1em;
 }
 
 .item .status {
@@ -106,4 +119,66 @@ header {
 
 .deleteItem {
   cursor: pointer;
+}
+
+header>.sidebar {
+  display: flex;
+  gap: 1em;
+}
+
+.newTODO>#title {
+  width: 70%;
+  border: none;
+  border-bottom: 1px solid lightblue;
+  border-radius: 0.3em;
+  height: 2em;
+}
+
+.delete {
+  cursor: pointer;
+  color: #003566;
+}
+
+.view>.title,
+.item {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+  border: 1px solid lightgray;
+  width: 100%;
+  padding: 1em;
+  background-color: #72BBCE;
+  color: #F1FAEE;
+  border-radius: 0.6em;
+}
+
+.view>.title {
+  display: block;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.items>.item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.items {
+  display: contents;
+}
+
+.addItem {
+  display: contents;
+  width: 100%;
+}
+
+#newItem {
+  width: 108%;
+  border: none;
+  padding: 0.5em;
+  border-radius: 0.3em
+}
+
+.itemStatus {
+  width: 2em;
 }

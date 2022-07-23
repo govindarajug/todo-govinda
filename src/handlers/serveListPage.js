@@ -4,6 +4,8 @@ const listPageTemplate = `<html>
   <title>
     TO-DO
   </title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
   <link rel="stylesheet" href="/styles/homepage.css">
     <script src="/scripts/xhrutils.js"></script>
     <script src="/scripts/formUtils.js"></script>
@@ -14,8 +16,7 @@ const listPageTemplate = `<html>
 <body>
   <div class="pagewrapper">
     <header>
-      <h2 class="greeting">Hello</h2>
-      <h1>TO-DO</h1>
+      <h1>TODO</h1>
       <div class="back"><a href="/">back</a></div>
     </header>
     <main class="listContainer">

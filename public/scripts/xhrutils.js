@@ -1,8 +1,8 @@
-const alertUser = (xhr) => {
-  alert('Failed');
+const doNothing = (xhr) => {
+  return;
 };
 
-const xhrGet = (path, onSuccess, onFailure = alertUser, body = '') => {
+const xhrGet = (path, onSuccess, onFailure = doNothing, body = '') => {
   const xhr = new XMLHttpRequest();
   xhr.onload = () => {
     if (xhr.status >= 200 && xhr.status <= 299) {
@@ -16,7 +16,7 @@ const xhrGet = (path, onSuccess, onFailure = alertUser, body = '') => {
   xhr.send(body);
 };
 
-const xhrPost = (path, onSuccess, onFailure = alertUser, body = '', type = 'form') => {
+const xhrPost = (path, onSuccess, onFailure = doNothing, body = '', type = 'form') => {
   const types = {
     'form': "application/x-www-form-urlencoded",
     'text': 'text/plain',

@@ -5,9 +5,9 @@ const createItems = (items) => {
       ['div', { id: item.id, className: 'item' }, [
         ['input', { type: 'checkbox', checked: item.done, className: 'itemStatus' }, ''],
         ['label', { for: item.description }, item.description],
-        ['div', { className: 'deleteItem' }, 'X']]
-      ]);
-    itemEle.querySelector('.deleteItem').onclick = deleteItem;
+        ['span', { className: 'material-icons delete' }, 'delete']
+      ]]);
+    itemEle.querySelector('.delete').onclick = deleteItem;
     itemEle.querySelector('.itemStatus').onclick = markItem;
     itemsElement.appendChild(itemEle);
   });
@@ -17,9 +17,9 @@ const createItems = (items) => {
 const drawList = (list, listContainer, task) => {
   if (list.title) {
     const listEle = createElementTree(
-      ['article', { className: 'todoList', id: list.id }, []]);
+      ['article', { className: 'todoList view', id: list.id }, []]);
     listEle.appendChild(createElementTree(
-      ['div', { className: 'title' }, list.title]));
+      ['h2', { className: 'title' }, list.title]));
     if (list.items) {
       listEle.appendChild(createItems(list.items));
     }

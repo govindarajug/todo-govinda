@@ -1,38 +1,17 @@
-const createItems = (items) => {
-  const itemsElement = createElementTree(['div', { className: 'items' }, []]);
-  items.forEach(item => {
-    itemsElement.appendChild(createElementTree(
-      ['div', { id: item.id, className: 'item' }, [
-        ['div', { className: 'status' }, item.done ? '✅' : '❌'],
-        ['div', {}, item.description]]
-      ])
-    );
-  });
-  return itemsElement;
-};
-
 const deleteList = (event) => {
-  const listId = event.target.id;
+  const listId = event.target.parentNode.id;
   xhrPost(`/delete/${listId}`, addTODOs);
 };
 
 const drawList = (list, listContainer) => {
   if (list.title) {
-    const listEle = createElementTree(['article', { className: 'todoList', id: list.id }, []]);
-    const link = createElementTree(['a',
-      { className: 'clickable', href: `/lists/${list.id}` }, []]);
-    listEle.appendChild(link);
+    const listEle = createElementTree(['article', { className: 'item', id: list.id }, [
+      ['a', { className: 'clickable', href: `/lists/${list.id}` }, [
+        ['div', { className: 'title' }, list.title]]],
+      ['span', { className: 'material-icons delete' }, 'delete']
+    ]]);
 
-    const deleteListEle = createElementTree(['div',
-      { className: 'deleteList', id: list.id }, 'X']);
-    deleteListEle.onclick = deleteList;
-    listEle.appendChild(deleteListEle);
-
-    listEle.appendChild(createElementTree(
-      ['div', { className: 'title' }, list.title]));
-    if (list.items) {
-      listEle.appendChild(createItems(list.items));
-    }
+    listEle.querySelector('.delete').onclick = deleteList;
     listContainer.appendChild(listEle);
   };
   return;
