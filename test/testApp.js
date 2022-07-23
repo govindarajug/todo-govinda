@@ -1,20 +1,6 @@
 const request = require('supertest');
 const { createApp } = require('../src/app.js');
 
-describe('Static File Serving', () => {
-  const config = {
-    key: 'somekey',
-    users: ['spider'],
-    dbPath: './test/db/toDo.json'
-  };
-  it('It should serve static file from public', (done) => {
-    request(createApp(config))
-      .get('/signup.html')
-      .expect('content-type', /text\/html/)
-      .expect(200, done);
-  });
-});
-
 describe('login requests', () => {
   const config = {
     key: 'somekey',
@@ -33,7 +19,7 @@ describe('login requests', () => {
     request(createApp(config))
       .post('/login')
       .send('username=abcd')
-      .expect('location', '/login.html')
+      .expect('location', '/login')
       .expect(302, done);
   });
 });
@@ -52,11 +38,11 @@ describe('signup requests', () => {
       .expect(302, done);
   });
 
-  it('Should redirect to signup when username is not given', (done) => {
+  it('Should redirect to signup when username is already taken', (done) => {
     request(createApp(config))
       .post('/signup')
-      .send('username=')
-      .expect('location', '/signup.html')
+      .send('username=spider')
+      .expect('location', '/signup')
       .expect(302, done);
   });
 });
@@ -71,7 +57,7 @@ describe('logout requests', () => {
     request(createApp(config))
       .get('/logout')
       .set('Cookie', 'id=1')
-      .expect('location', '/login.html')
+      .expect('location', '/login')
       .expect(302, done);
   });
 });
