@@ -1,6 +1,6 @@
 const authenticationHandler = (req, res, next) => {
   if (!req.session.username) {
-    res.redirect('/login.html');
+    res.redirect('/login');
     return;
   };
   next();

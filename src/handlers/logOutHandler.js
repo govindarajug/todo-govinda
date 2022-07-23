@@ -1,6 +1,6 @@
 const logOutHandler = (req, res, next) => {
   req.session = null;
-  res.redirect('/login.html');
+  res.redirect('/login');
 };
 
 module.exports = { logOutHandler };

@@ -106,3 +106,9 @@ main>* {
 a {
   color: #023047;
 }
+
+.message {
+  height: 1.5em;
+  font-weight: 200;
+  color: rgba(0, 0, 0, 0.843);
+}

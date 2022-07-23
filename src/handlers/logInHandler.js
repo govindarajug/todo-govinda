@@ -3,7 +3,8 @@ const logInHandler = (users) => {
     const { username } = req.body;
     if (username) {
       if (!users.includes(username)) {
-        res.redirect('/login.html');
+        res.cookie('message', 'Username or password incorrect.', { maxAge: 1000 });
+        res.redirect('/login');
         return;
       };
 
@@ -11,7 +12,7 @@ const logInHandler = (users) => {
       res.redirect('/');
       return;
     }
-    res.redirect('/login.html');
+    res.redirect('/login');
   };
 };
 

@@ -1,8 +1,9 @@
 const signUpHandler = (users, allToDo) => {
   return (req, res) => {
     const { username } = req.body;
-    if (!username) {
-      res.redirect('/signup.html');
+    if (users.includes(username)) {
+      res.cookie('message', 'Username already in use.', { maxAge: 1000 });
+      res.redirect('/signup');
       return;
     }
     users.push(username);

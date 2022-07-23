@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const cookieSession = require('cookie-session');
+const cookieParser = require('cookie-parser');
 
 const { logInHandler } = require('./handlers/logInHandler');
 const { signUpHandler } = require('./handlers/signUpHandler');
@@ -19,6 +20,8 @@ const { serveListPage } = require('./handlers/serveListPage');
 const { addItem } = require('./handlers/addItemHandler');
 const { deleteItem } = require('./handlers/deleteItem');
 const { markItemStatus } = require('./handlers/markItem');
+const { serveLoginPage } = require('./handlers/serveLoginPage');
+const { serveSignupPage } = require('./handlers/serveSignUpPage');
 
 const createToDoRouter = (allToDo) => {
   const toDoRouter = express.Router();
@@ -34,12 +37,15 @@ const createApp = (config) => {
 
   app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
+  app.use(cookieParser());
 
   app.use(cookieSession({
     name: 'session',
     keys: [config.key]
   }));
 
+  app.get('/login', serveLoginPage);
+  app.get('/signup', serveSignupPage);
   app.post('/login', logInHandler(config.users));
   app.post('/signup', signUpHandler(config.users, allToDo));
 

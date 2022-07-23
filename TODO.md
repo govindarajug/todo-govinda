@@ -3,11 +3,13 @@
 - [ ] Change the design of home and view page
 - [ ] Style the home page and view page
 - [ ] Handle 404 error and give a link to login page
-- [ ] Generate login,sign-up and serve
 - [ ] Collect more details about flash message
+- [ ] Generate html instead of reading from templates
 
 ## DONE
 
+- [x] Show the error message in login
+- [x] Show the error message in sign-up
 - [x] choose a theme for todo
 - [x] add mark done and undone feature
   - [x] make a handler which will toggle status of item
