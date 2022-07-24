@@ -241,3 +241,29 @@ describe('mark item', () => {
       .expect(200, done);
   });
 });
+
+describe('edit title of a list', () => {
+  const config = {
+    key: 'somekey',
+    users: getJSON('./test/db/users.json'),
+    dbPath: './test/db/toDo.json'
+  };
+  let cookie;
+  beforeEach((done) => {
+    request(createApp(config))
+      .post('/login')
+      .send('username=spider')
+      .end((err, res) => {
+        cookie = res.headers['set-cookie'];
+        done();
+      });
+  });
+
+  it('Should edit list title when path is POST /edit/:listId', (done) => {
+    request(createApp(config))
+      .post('/edit/1')
+      .send('newTitle=home work')
+      .set('Cookie', cookie)
+      .expect(200, done);
+  });
+});
