@@ -267,3 +267,29 @@ describe('edit title of a list', () => {
       .expect(200, done);
   });
 });
+
+describe('edit a item description of a list', () => {
+  const config = {
+    key: 'somekey',
+    users: getJSON('./test/db/users.json'),
+    dbPath: './test/db/toDo.json'
+  };
+  let cookie;
+  beforeEach((done) => {
+    request(createApp(config))
+      .post('/login')
+      .send('username=spider')
+      .end((err, res) => {
+        cookie = res.headers['set-cookie'];
+        done();
+      });
+  });
+
+  it('Should edit item description in a list when path is POST /edit/:listId/:itemId', (done) => {
+    request(createApp(config))
+      .post('/edit/1/2')
+      .send('newDesc=enter lab')
+      .set('Cookie', cookie)
+      .expect(200, done);
+  });
+});

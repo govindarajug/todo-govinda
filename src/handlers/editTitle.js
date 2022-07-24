@@ -7,8 +7,8 @@ const editTitle = (allToDo, dbPath) => {
     const list = lists.find(list => list.id === id);
 
     const { newTitle } = req.body;
-
     list.title = newTitle;
+
     storeJSON(allToDo, dbPath);
     res.json(req.toDo);
   };

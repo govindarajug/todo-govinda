@@ -1,7 +1,6 @@
 ## TO-DO
 
 - [ ] Add a event listener to edit the title and list items
-- [ ] Make a handler to edit the items in a list
 - [ ] Restrict user to go login and signup pages after logged in
 - [ ] Add password check 
 - [ ] Handle 404 error and give a link to login page
@@ -11,6 +10,7 @@
 
 ## DONE
 
+- [x] Make a handler to edit the items in a list
 - [x] Make a handler to edit the title of a list
 - [x] Update the readme.md with new requirements
 - [x] Persist users data
