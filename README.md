@@ -16,4 +16,14 @@
 
 ### Delete
 * Delete a todo item. 
-* Delete a todo list
+* Delete a todo list.
+
+### Edit
+* Edit a todo item. 
+* Edit a todo list title.
+
+### Search
+
+* Search by title - search all todo lists by their title
+* Search by task - search todo tasks across all lists
+* Search by completion - search for all todo tasks that are marked as being done.

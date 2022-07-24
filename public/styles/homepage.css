@@ -186,3 +186,7 @@ header>.sidebar {
 .itemStatus {
   width: 2em;
 }
+
+input {
+  outline: none;
+}

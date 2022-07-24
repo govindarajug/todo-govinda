@@ -112,3 +112,7 @@ a {
   font-weight: 200;
   color: rgba(0, 0, 0, 0.843);
 }
+
+input {
+  outline: none;
+}
