@@ -65,8 +65,9 @@ const markItem = (event) => {
 };
 
 const deleteItem = (event) => {
-  const itemId = event.target.parentElement.id;
-  const listId = event.target.parentNode.parentNode.parentNode.id;
+  console.log(event.target);
+  const itemId = event.target.parentNode.parentNode.id;
+  const listId = document.getElementById(itemId).parentNode.parentNode.id;
   xhrPost(`/delete/${listId}/${itemId}`, updateScreen);
 };
 

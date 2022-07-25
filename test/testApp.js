@@ -11,7 +11,7 @@ describe('login requests', () => {
   it('Should redirect to homepage when credentials are correct', (done) => {
     request(createApp(config))
       .post('/login')
-      .send('username=spider')
+      .send('username=spider&password=123')
       .expect('location', '/')
       .expect(302, done);
   });
@@ -34,7 +34,7 @@ describe('signup requests', () => {
   it('Should redirect to home after signingup', (done) => {
     request(createApp(config))
       .post('/signup')
-      .send('username=abcd')
+      .send('username=abcd&password=111')
       .expect('location', '/')
       .expect(302, done);
   });
@@ -42,7 +42,7 @@ describe('signup requests', () => {
   it('Should redirect to signup when username is already taken', (done) => {
     request(createApp(config))
       .post('/signup')
-      .send('username=spider')
+      .send('username=spider&password=123')
       .expect('location', '/signup')
       .expect(302, done);
   });
@@ -73,7 +73,7 @@ describe('apiHandler', () => {
   beforeEach((done) => {
     request(createApp(config))
       .post('/login')
-      .send('username=spider')
+      .send('username=spider&password=123')
       .end((err, res) => {
         cookie = res.headers['set-cookie'];
         done();
@@ -99,7 +99,7 @@ describe('addListHandler', () => {
   beforeEach((done) => {
     request(createApp(config))
       .post('/login')
-      .send('username=spider')
+      .send('username=spider&password=123')
       .end((err, res) => {
         cookie = res.headers['set-cookie'];
         done();
@@ -125,7 +125,7 @@ describe('delete lists', () => {
   beforeEach((done) => {
     request(createApp(config))
       .post('/login')
-      .send('username=spider')
+      .send('username=spider&password=123')
       .end((err, res) => {
         cookie = res.headers['set-cookie'];
         done();
@@ -150,7 +150,7 @@ describe('show lists', () => {
   beforeEach((done) => {
     request(createApp(config))
       .post('/login')
-      .send('username=spider')
+      .send('username=spider&password=123')
       .end((err, res) => {
         cookie = res.headers['set-cookie'];
         done();
@@ -176,7 +176,7 @@ describe('add item', () => {
   beforeEach((done) => {
     request(createApp(config))
       .post('/login')
-      .send('username=spider')
+      .send('username=spider&password=123')
       .end((err, res) => {
         cookie = res.headers['set-cookie'];
         done();
@@ -202,7 +202,7 @@ describe('delete item', () => {
   beforeEach((done) => {
     request(createApp(config))
       .post('/login')
-      .send('username=spider')
+      .send('username=spider&password=123')
       .end((err, res) => {
         cookie = res.headers['set-cookie'];
         done();
@@ -227,7 +227,7 @@ describe('mark item', () => {
   beforeEach((done) => {
     request(createApp(config))
       .post('/login')
-      .send('username=spider')
+      .send('username=spider&password=123')
       .end((err, res) => {
         cookie = res.headers['set-cookie'];
         done();
@@ -252,7 +252,7 @@ describe('edit title of a list', () => {
   beforeEach((done) => {
     request(createApp(config))
       .post('/login')
-      .send('username=spider')
+      .send('username=spider&password=123')
       .end((err, res) => {
         cookie = res.headers['set-cookie'];
         done();
@@ -278,7 +278,7 @@ describe('edit a item description of a list', () => {
   beforeEach((done) => {
     request(createApp(config))
       .post('/login')
-      .send('username=spider')
+      .send('username=spider&password=123')
       .end((err, res) => {
         cookie = res.headers['set-cookie'];
         done();
