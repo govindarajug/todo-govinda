@@ -1,6 +1,8 @@
 ## TO-DO
 
-- [ ] Add a event listener to edit the title and list items
+- [ ] Add a event listener to edit
+  - [x] add event listener to edit title
+  - [ ] add event listener to edit item description
 - [ ] Restrict user to go login and signup pages after logged in
 - [ ] Add password check 
 - [ ] Handle 404 error and give a link to login page

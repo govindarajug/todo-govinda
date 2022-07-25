@@ -129,16 +129,17 @@ header>.sidebar {
   color: #f5f5f596;
 }
 
-.newTODO>#title {
+.newTODO>#title,
+#edit {
   width: 70%;
   border: none;
   border-bottom: 1px solid #f5f5f596;
-  height: 2em;
   color: white;
   background-color: inherit;
 }
 
-.delete {
+.delete,
+.edit {
   cursor: pointer;
   color: #003566;
 }
@@ -189,4 +190,10 @@ header>.sidebar {
 
 input {
   outline: none;
+}
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5em;
 }
