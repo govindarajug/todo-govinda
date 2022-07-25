@@ -1,14 +1,40 @@
+const onEnter = (event) => {
+  const itemId = event.target.parentNode.id;
+  const listId = document.getElementById(itemId).parentNode.parentNode.id;
+  if (event.key === 'Enter') {
+    event.preventDefault();
+    const listEle = document.getElementById(itemId);
+    const newDesc = listEle.childNodes[1].value;
+    xhrPost(`/edit/${listId}/${itemId}`, updateScreen, '', `newDesc=${newDesc}`);
+  };
+};
+
+const drawInput = (event) => {
+  const listId = event.target.parentNode.parentNode.id;
+  const listEle = document.getElementById(listId);
+  const itemEle = listEle.childNodes[1];
+  const inputEle = createElementTree(['input',
+    { type: 'text', id: 'edit', name: 'newDesc', value: itemEle.innerText }, '']);
+  itemEle.replaceWith(inputEle);
+  inputEle.focus();
+  inputEle.onkeydown = onEnter;
+};
+
 const createItems = (items) => {
   const itemsElement = createElementTree(['div', { className: 'items' }, []]);
   items.forEach(item => {
     const itemEle = createElementTree(
       ['div', { id: item.id, className: 'item' }, [
         ['input', { type: 'checkbox', checked: item.done, className: 'itemStatus' }, ''],
-        ['label', { for: item.description }, item.description],
-        ['span', { className: 'material-icons delete' }, 'delete']
+        ['label', { for: item.description }, item.description], [
+          'div', { className: 'icons' }, [
+            ['span', { className: 'material-icons edit' }, 'edit'],
+            ['span', { className: 'material-icons delete' }, 'delete']
+          ]]
       ]]);
     itemEle.querySelector('.delete').onclick = deleteItem;
     itemEle.querySelector('.itemStatus').onclick = markItem;
+    itemEle.querySelector('.edit').onclick = drawInput;
     itemsElement.appendChild(itemEle);
   });
   return itemsElement;

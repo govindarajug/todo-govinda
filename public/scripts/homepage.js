@@ -47,7 +47,6 @@ const addTODOs = (response) => {
   const container = document.querySelector('.listContainer');
   const newToDo = document.querySelector('.newTODO');
   container.replaceChildren(newToDo);
-  // console.log(response);
   const userToDo = JSON.parse(response);
   userToDo.lists.forEach(list => {
     drawList(list, container);
