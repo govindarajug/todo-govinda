@@ -49,7 +49,7 @@ const createApp = (config) => {
   app.get('/login', serveLoginPage);
   app.get('/signup', serveSignupPage);
   app.post('/login', logInHandler(config.users));
-  app.post('/signup', signUpHandler(config.users, allToDo));
+  app.post('/signup', signUpHandler(config.users, allToDo, config.usersDb));
 
   app.get('/logOut', logOutHandler);
 

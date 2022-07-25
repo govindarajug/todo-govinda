@@ -1,14 +1,20 @@
 ## TO-DO
 
 - [ ] make a search handler for lists
+- [ ] make a search handler for list items
+  - [ ] search default all items
+  - [ ] give filter to check done or undone
 - [ ] Maintain consistency over check box size
 - [ ] Handle 404 error and give a link to login page
 - [ ] Collect more details about flash message
 - [ ] Generate html instead of reading from templates
-- [ ] Update dbpath in .env as directory path
+- [ ] Make input new list's position fixed
 
 ## DONE
 
+- [x] Modify the design of the page
+- [x] Remove dependency of tests over real data
+- [x] Update dbpath in .env as directory path
 - [x] Maintain consistency over button background
 - [x] Restrict user to go login and signup pages after logged in
 - [x] Add password check 

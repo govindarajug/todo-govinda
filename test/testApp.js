@@ -1,6 +1,45 @@
 const request = require('supertest');
 const { createApp } = require('../src/app.js');
-const { getJSON } = require('../src/handlers/dataManager.js');
+const { getJSON, storeJSON } = require('../src/handlers/dataManager.js');
+
+const usersData = {
+  "spider": {
+    "username": "spider",
+    "password": "123"
+  }
+};
+
+const allToDo = {
+  "spider": {
+    "username": "spider",
+    "lists": [
+      {
+        "id": "1",
+        "title": "School",
+        "items": [
+          {
+            "id": "1",
+            "description": "science",
+            "done": false
+          },
+          {
+            "id": "2",
+            "description": "enter lab",
+            "done": true
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "title": "task deleting",
+        "items": []
+      }
+    ]
+  }
+};
+
+storeJSON(usersData, './test/db/users.json');
+storeJSON(allToDo, './test/db/toDo.json');
 
 describe('login requests', () => {
   const config = {
@@ -29,7 +68,8 @@ describe('signup requests', () => {
   const config = {
     key: 'somekey',
     users: getJSON('./test/db/users.json'),
-    dbPath: './test/db/toDo.json'
+    dbPath: './test/db/toDo.json',
+    usersDb: './test/db/users.json'
   };
   it('Should redirect to home after signingup', (done) => {
     request(createApp(config))
@@ -134,7 +174,7 @@ describe('delete lists', () => {
 
   it('Should delete list when path is POST /delete/:id', (done) => {
     request(createApp(config))
-      .post('/delete/1658381052450')
+      .post('/delete/2')
       .set('Cookie', cookie)
       .expect(200, done);
   });
@@ -159,7 +199,7 @@ describe('show lists', () => {
 
   it('Should give list when path is GET /api/to-do/:id', (done) => {
     request(createApp(config))
-      .get('/api/to-do/lists/2')
+      .get('/api/to-do/lists/1')
       .set('Cookie', cookie)
       .expect('content-type', /json/)
       .expect(200, done);
@@ -185,7 +225,7 @@ describe('add item', () => {
 
   it('Should add item when path is POST /addItem/', (done) => {
     request(createApp(config))
-      .post('/lists/2/addItem')
+      .post('/lists/1/addItem')
       .send('newItem=cake')
       .set('Cookie', cookie)
       .expect(200, done);
@@ -211,7 +251,7 @@ describe('delete item', () => {
 
   it('Should add item when path is POST /deleteItem/:listId/:itemId', (done) => {
     request(createApp(config))
-      .post('/delete/2/1658494765921')
+      .post('/delete/1/2')
       .set('Cookie', cookie)
       .expect(200, done);
   });
@@ -236,7 +276,7 @@ describe('mark item', () => {
 
   it('Should toggle item status when path is POST /mark/:listId/:itemId', (done) => {
     request(createApp(config))
-      .post('/mark/1/2')
+      .post('/mark/1/1')
       .set('Cookie', cookie)
       .expect(200, done);
   });
@@ -287,8 +327,8 @@ describe('edit a item description of a list', () => {
 
   it('Should edit item description in a list when path is POST /edit/:listId/:itemId', (done) => {
     request(createApp(config))
-      .post('/edit/1/2')
-      .send('newDesc=enter lab')
+      .post('/edit/1/1')
+      .send('newDesc=social')
       .set('Cookie', cookie)
       .expect(200, done);
   });

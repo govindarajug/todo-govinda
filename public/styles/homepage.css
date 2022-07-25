@@ -20,20 +20,27 @@ body {
 header {
   display: flex;
   height: 2em;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
-  padding-top: 2em;
+  padding: 1.5em 2em;
+  border-bottom: 1px solid #243b4a;
+  position: sticky;
+  top: 0;
+  background-color: #DCEEF3;
 }
 
-.listContainer,
-.view {
-  margin: 1em auto;
+header h1 {
+  font-size: 1.5em;
+}
+
+.listContainer {
   padding: 1.5em;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5em;
-  width: 600px;
+  gap: 1em;
+  height: 81%;
+  overflow: auto;
 }
 
 .clickable {
@@ -95,9 +102,9 @@ header {
   justify-content: space-between;
   gap: 1em;
   border: 1px solid lightgray;
-  width: 100%;
+  width: 50%;
   padding: 1em;
-  background-color: #72BBCE;
+  background-color: #5685a3;
   color: #F1FAEE;
   border-radius: 0.6em;
 }
@@ -129,6 +136,13 @@ header {
 header>.sidebar {
   display: flex;
   gap: 1em;
+  align-items: center;
+}
+
+.sidebar>input {
+  border-radius: 0.6em;
+  border: 1px solid #6bd5f3;
+  padding: 0.2em 1em
 }
 
 /* #title::placeholder {
@@ -141,12 +155,17 @@ header>.sidebar {
   border: none;
   border-bottom: 1px solid #f5f5f596;
   background-color: inherit;
+  color: white;
+}
+
+.newTODO>#title {
+  color: black;
 }
 
 .delete,
 .edit {
   cursor: pointer;
-  color: #003566;
+  color: white;
 }
 
 .view>.title,
@@ -157,7 +176,7 @@ header>.sidebar {
   border: 1px solid lightgray;
   width: 100%;
   padding: 1em;
-  background-color: #72BBCE;
+  background-color: #5685a3;
   color: #F1FAEE;
   border-radius: 0.3em;
 }
@@ -183,14 +202,15 @@ header>.sidebar {
 }
 
 #newItem {
-  width: 108%;
+  width: 105%;
   border: none;
   padding: 0.5em;
   border-radius: 0.3em
 }
 
 .itemStatus {
-  width: 2em;
+  width: 1.2em;
+  aspect-ratio: 1;
 }
 
 input {
@@ -201,4 +221,14 @@ input {
   display: flex;
   flex-direction: row;
   gap: 1.5em;
+}
+
+.view {
+  padding: 1.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  gap: 1em;
+  height: 81%;
 }

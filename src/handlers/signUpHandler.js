@@ -1,6 +1,6 @@
 const { storeJSON } = require('./dataManager.js');
 
-const signUpHandler = (users, allToDo) => {
+const signUpHandler = (users, allToDo, usersDb) => {
   return (req, res) => {
     const { username } = req.body;
     const { password } = req.body;
@@ -15,7 +15,7 @@ const signUpHandler = (users, allToDo) => {
       "username": newUsername,
       "password": password
     };
-    storeJSON(users, './db/users.json');
+    storeJSON(users, usersDb);
     allToDo[newUsername] = { newUsername, lists: [] };
     req.session = {
       id: new Date().getTime().toString(),

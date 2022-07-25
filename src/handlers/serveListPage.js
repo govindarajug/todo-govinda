@@ -16,8 +16,12 @@ const listPageTemplate = `<html>
 <body>
   <div class="pagewrapper">
     <header>
-      <h1>TODO</h1>
-      <div class="back"><a href="/">back</a></div>
+      <a href="/"><h1>TODO</h1></a>
+      <div class="sidebar">
+      <input type="searchbox" name="searchkey" placeholder="Search"></input>
+      <div class="username">__USER__</div>
+        <div class="logout"><a href="/logOut" class="material-icons">logout</a></div>
+      </div>
     </header>
     <main class="listContainer">
     </main>
@@ -27,8 +31,10 @@ const listPageTemplate = `<html>
 </html>`;
 
 const serveListPage = (req, res) => {
+  const { username } = req.session;
+  const content = listPageTemplate.replace('__USER__', username);
   res.set('content-type', 'text/html');
-  res.send(listPageTemplate);
+  res.send(content);
 };
 
 module.exports = { serveListPage };

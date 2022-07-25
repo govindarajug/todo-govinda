@@ -6,7 +6,8 @@ const startServer = (port) => {
   const config = {
     key: process.env.key,
     users: getJSON('./db/users.json'),
-    dbPath: process.env.dbPath
+    dbPath: process.env.dbPath,
+    usersDb: './db/users.json'
   };
 
   const app = createApp(config);

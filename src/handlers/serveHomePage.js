@@ -17,8 +17,10 @@ const homePageTemplate = `<html>
   <div class="pagewrapper">
     <header>
       <h1>TODO</h1>
-      <div class="sidebar"><div class="username">__USER__</div>
-        <div class="logout"><a href="/logOut">logout</a></div>
+      <div class="sidebar">
+      <input type="searchbox" name="searchkey" placeholder="Search"></input>
+      <div class="username">__USER__</div>
+        <div class="logout"><a href="/logOut" class="material-icons">logout</a></div>
       </div>
     </header>
     <main class="listContainer">
