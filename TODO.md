@@ -1,7 +1,6 @@
 ## TO-DO
 
 - [ ] make a search handler for lists
-- [ ] Maintain consistency over button background
 - [ ] Maintain consistency over check box size
 - [ ] Handle 404 error and give a link to login page
 - [ ] Collect more details about flash message
@@ -10,6 +9,7 @@
 
 ## DONE
 
+- [x] Maintain consistency over button background
 - [x] Restrict user to go login and signup pages after logged in
 - [x] Add password check 
 - [x] Add a event listener to edit

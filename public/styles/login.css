@@ -82,12 +82,13 @@ main>* {
   padding: 0.4em 1em;
   font-size: 1em;
   border-radius: 0.9em;
-  font-weight: 500;
   margin: 10px 0px;
 }
 
 .button {
   background-color: #457B9D;
+  border: none;
+  cursor: pointer;
 }
 
 .bold {
