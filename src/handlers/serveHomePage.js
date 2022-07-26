@@ -9,6 +9,7 @@ const homePageTemplate = `<html>
   <link rel="stylesheet" href="styles/homepage.css">
     <script src="scripts/xhrutils.js"></script>
     <script src="scripts/formUtils.js"></script>
+    <script src="scripts/drawUtils.js"></script>
     <script src="scripts/createElement.js"></script>
   <script src="scripts/homepage.js"></script>
 </head>
@@ -16,9 +17,9 @@ const homePageTemplate = `<html>
 <body>
   <div class="pagewrapper">
     <header>
-      <h1>TODO</h1>
+      <a href="/"><h1>TODO</h1></a>
       <div class="sidebar">
-      <input type="searchbox" name="searchkey" placeholder="Search"></input>
+      <form action="/search"><input type="search" name="query" placeholder="Search"></input></form>
       <div class="username">__USER__</div>
         <div class="logout"><a href="/logOut" class="material-icons">logout</a></div>
       </div>

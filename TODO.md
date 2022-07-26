@@ -1,7 +1,6 @@
 ## TO-DO
 
-- [ ] make a search handler for lists
-- [ ] make a search handler for list items
+- [ ] make a search for list items
   - [ ] search default all items
   - [ ] give filter to check done or undone
 - [ ] Maintain consistency over check box size
@@ -12,6 +11,7 @@
 
 ## DONE
 
+- [x] make a search for lists
 - [x] Modify the design of the page
 - [x] Remove dependency of tests over real data
 - [x] Update dbpath in .env as directory path

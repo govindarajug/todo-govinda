@@ -1,16 +1,16 @@
-const listPageTemplate = `<html>
+const pageTemplate = `<html>
 
 <head>
   <title>
-    TO-DO
+    TODO
   </title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-  <link rel="stylesheet" href="/styles/homepage.css">
-    <script src="/scripts/xhrutils.js"></script>
-    <script src="/scripts/formUtils.js"></script>
-    <script src="/scripts/createElement.js"></script>
-  <script src="/scripts/listPage.js"></script>
+  <link rel="stylesheet" href="styles/homepage.css">
+    <script src="scripts/xhrutils.js"></script>
+    <script src="scripts/formUtils.js"></script>
+    <script src="scripts/createElement.js"></script>
+  <script src="scripts/searchPage.js"></script>
 </head>
 
 <body>
@@ -18,7 +18,7 @@ const listPageTemplate = `<html>
     <header>
       <a href="/"><h1>TODO</h1></a>
       <div class="sidebar">
-      <input type="searchbox" name="query" placeholder="Search"></input>
+      <form action="/search"><input type="search" name="query" placeholder="Search"></input></form>
       <div class="username">__USER__</div>
         <div class="logout"><a href="/logOut" class="material-icons">logout</a></div>
       </div>
@@ -30,11 +30,11 @@ const listPageTemplate = `<html>
 
 </html>`;
 
-const serveListPage = (req, res) => {
+const serveSearchPage = (req, res) => {
   const { username } = req.session;
-  const content = listPageTemplate.replace('__USER__', username);
+  const content = pageTemplate.replace('__USER__', username);
   res.set('content-type', 'text/html');
   res.send(content);
 };
 
-module.exports = { serveListPage };
+module.exports = { serveSearchPage };

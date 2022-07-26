@@ -24,6 +24,7 @@ const { serveLoginPage } = require('./handlers/serveLoginPage');
 const { serveSignupPage } = require('./handlers/serveSignUpPage');
 const { editTitle } = require('./handlers/editTitle');
 const { editItem } = require('./handlers/editItem');
+const { serveSearchPage } = require('./handlers/serveSearchPage');
 
 const createToDoRouter = (allToDo) => {
   const toDoRouter = express.Router();
@@ -67,6 +68,8 @@ const createApp = (config) => {
 
   toDoRouter.post('/delete/:id/:itemId', deleteItem(allToDo, config.dbPath));
   toDoRouter.post('/delete/:id', deleteList(allToDo, config.dbPath));
+
+  toDoRouter.get('/search*', serveSearchPage);
 
   toDoRouter.post('/edit/:id', editTitle(allToDo, config.dbPath));
   toDoRouter.post('/edit/:id/:itemId', editItem(allToDo, config.dbPath));

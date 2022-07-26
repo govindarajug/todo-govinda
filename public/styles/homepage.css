@@ -139,7 +139,7 @@ header>.sidebar {
   align-items: center;
 }
 
-.sidebar>input {
+.sidebar input {
   border-radius: 0.6em;
   border: 1px solid #6bd5f3;
   padding: 0.2em 1em
@@ -184,7 +184,10 @@ header>.sidebar {
 .view>.title {
   display: block;
   text-align: center;
-  font-size: 1.2em;
+  font-size: 1.5em;
+  background-color: #dceef3;
+  color: #5685a3;
+  border: none;
 }
 
 .items>.item {
@@ -231,4 +234,9 @@ input {
   width: 50%;
   gap: 1em;
   height: 81%;
+}
+
+.item>div {
+  display: flex;
+  gap: 1em;
 }

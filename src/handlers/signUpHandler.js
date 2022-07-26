@@ -16,7 +16,7 @@ const signUpHandler = (users, allToDo, usersDb) => {
       "password": password
     };
     storeJSON(users, usersDb);
-    allToDo[newUsername] = { newUsername, lists: [] };
+    allToDo[newUsername] = { 'username': newUsername, 'lists': [] };
     req.session = {
       id: new Date().getTime().toString(),
       'username': newUsername
