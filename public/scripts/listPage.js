@@ -60,13 +60,12 @@ const drawList = (list, listContainer, task) => {
 };
 
 const markItem = (event) => {
-  const itemId = event.target.parentElement.id;
-  const listId = event.target.parentNode.parentNode.parentNode.id;
+  const itemId = event.target.parentNode.parentNode.id;
+  const listId = event.target.parentNode.parentNode.parentNode.parentNode.id;
   xhrPost(`/mark/${listId}/${itemId}`, updateScreen);
 };
 
 const deleteItem = (event) => {
-  console.log(event.target);
   const itemId = event.target.parentNode.parentNode.id;
   const listId = document.getElementById(itemId).parentNode.parentNode.id;
   xhrPost(`/delete/${listId}/${itemId}`, updateScreen);
@@ -76,7 +75,7 @@ const checkKey = (event) => {
   const url = new URL(document.location.href).pathname;
   if (event.key === 'Enter') {
     event.preventDefault();
-    xhrPost(`${url}/addItem`, updateScreen, '', getFormData('form'));
+    xhrPost(`${url}/addItem`, updateScreen, '', getFormData('.addItem'));
   };
 };
 

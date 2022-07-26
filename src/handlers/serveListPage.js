@@ -18,7 +18,13 @@ const listPageTemplate = `<html>
     <header>
       <a href="/"><h1>TODO</h1></a>
       <div class="sidebar">
-      <input type="searchbox" name="query" placeholder="Search"></input>
+      <form action="/search">
+      <input type="search" name="query" placeholder="Search"></input>
+      <select name="filter">
+      <option value="item">item</option>
+      <option value="list" selected="">list</option>
+      </select>
+      </form>
       <div class="username">__USER__</div>
         <div class="logout"><a href="/logOut" class="material-icons">logout</a></div>
       </div>

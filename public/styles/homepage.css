@@ -31,6 +31,7 @@ header {
 
 header h1 {
   font-size: 1.5em;
+  color: #5585a3;
 }
 
 .listContainer {
@@ -139,6 +140,15 @@ header>.sidebar {
   align-items: center;
 }
 
+.sidebar form {
+  display: flex;
+  gap: 1em;
+}
+
+.sidebar select {
+  border-radius: 0.3em;
+}
+
 .sidebar input {
   border-radius: 0.6em;
   border: 1px solid #6bd5f3;
@@ -239,4 +249,8 @@ input {
 .item>div {
   display: flex;
   gap: 1em;
+}
+
+.searchMsg {
+  width: 50%;
 }

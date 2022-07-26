@@ -7,7 +7,7 @@ const addList = (allToDo, dbPath) => {
       title: req.body.title,
       items: []
     };
-    req.toDo.lists.push(newList);
+    req.toDo.lists.unshift(newList);
     storeJSON(allToDo, dbPath);
     res.redirect('/');
   };

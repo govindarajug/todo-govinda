@@ -1,7 +1,7 @@
 ## TO-DO
 
-- [ ] make a search for list items
-  - [ ] search default all items
+- [x] make a search for list items
+  - [x] search default all items
   - [ ] give filter to check done or undone
 - [ ] Maintain consistency over check box size
 - [ ] Handle 404 error and give a link to login page
