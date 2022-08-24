@@ -2,16 +2,16 @@ const { createApp } = require("./src/app.js");
 const { getJSON } = require('./src/handlers/dataManager.js');
 require('dotenv').config();
 
-const startServer = (port) => {
+const startServer = (port, db) => {
   const config = {
     key: process.env.key,
-    users: getJSON('./db/users.json'),
+    users: getJSON(db),
     dbPath: process.env.dbPath,
-    usersDb: './db/users.json'
+    usersDb: db
   };
 
   const app = createApp(config);
   app.listen(port, () => console.log(`Server listening on ${port}`));
 };
 
-startServer('8000');
+startServer(process.env.PORT, process.env.usersDb);
